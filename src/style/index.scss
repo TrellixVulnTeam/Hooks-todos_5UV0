@@ -5,8 +5,8 @@ $fszie: 12px;
 $textAlign: left;
 $lineHeight: 40px;
 .delete{
-  position: relative;
-        right:-380px;
+  position: absolute;
+        left:100px;
         cursor: pointer;
 }
 
@@ -54,7 +54,7 @@ body {
         background-color: $bgColor;
       }
       .deleteOne{
-        @extend .delete
+        @extend .delete;
       }
       .lineThrow {
         width: 100%;
@@ -78,7 +78,7 @@ body {
         background-color: $bgColor;
       }
       .deleteOne{
-        @extend .delete
+        @extend .delete;
       }
       .lineThrow {
         width: 100%;
