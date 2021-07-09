@@ -1,0 +1,20 @@
+{
+    "obj":[
+        {
+            "text":"123",
+            "finished":"true"
+        },
+        {
+            "text":"234",
+            "finished":"false"
+        },
+        {
+            "text":"已完成",
+            "finished":"true"
+        },
+        {
+            "text":"未完成",
+            "finished":"false"
+        }
+    ]
+}
