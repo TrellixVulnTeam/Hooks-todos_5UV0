@@ -136,7 +136,7 @@ class TodoList {
     //     todo.value=newValue
     //     console.log(todo)
     // }
-    const todos = this.todos;
+    
 
     console.log(todo, "todo mobx");
   }
