@@ -1,12 +1,23 @@
-import React, { Component } from 'react'
-import Home from "./containers/home/Home"
+import React, {  } from "react";
+import Home from "./containers/home/Home";
 
-export default class App extends Component {
-  render() {
-    return (
-      <div>
-        <Home/>
-      </div>
-    )
-  }
-}
+import todoList from "./store/todolists";
+import { observer } from "mobx-react";
+// export default class App extends Component {
+//   render() {
+//     return (
+//       <div>
+//         <Home store={todoList} />
+//       </div>
+//     )
+//   }
+// }
+const App = observer((props) => {
+  return (
+    <div>
+      <Home store={todoList} />
+    </div>
+  );
+});
+
+export default App;

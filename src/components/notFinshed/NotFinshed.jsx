@@ -1,34 +1,36 @@
-import React, { useContext } from 'react'
-import NotFinshedItem from './NotFinshedItem'
+import { observer } from "mobx-react";
+import React, { useContext } from "react";
+// import NotFinshedItem from "./NotFinshedItem";
 
-import {HomeContext} from '../../containers/home/Home'
+// import { HomeContext } from "../../containers/home/Home";
 
-// export default class NotFinshed extends Component {
-//     render() {
-//         const {obj}=this.props
-//         // console.log(obj,"notfinshed")
-//         return (
-//             <div className="notfinished">
-//                 <p>未完成</p>
-//                 <NotFinshedItem/>
-//             </div>
-//         )
-//     }
-// }
-export default function NotFinshed(){
+import Item from "../item";
 
-    const {arr,setArr} =useContext(HomeContext)
-return(
+const NotFinshed = observer((props) => {
+  const {
+    isFinishedTodo,
+    unfinishedTodo,
+    toggleFinished,
+    changeValue,
+    deleteOne,
+    addSubItem,
+  } = props.store;
+  console.log(props.store, " notFinished");
+  const { notFinishedArr } = isFinishedTodo;
+  return (
     <div className="notfinished">
-        <p>未完成</p>
-        {
-            arr.map((i,index)=> {
-
-                if(i.finished===false){
-                    return <NotFinshedItem  i={i} key={i.id} />
-                }
-            } )
-        }
+      <p>未完成</p>
+      {unfinishedTodo.map((todo) => (
+        <Item
+          todo={todo}
+          key={todo.id}
+          toggleFinished={toggleFinished}
+          changeValue={changeValue}
+          deleteOne={deleteOne}
+          addSubItem={addSubItem}
+        />
+      ))}
     </div>
-)
-}
+  );
+});
+export default NotFinshed;

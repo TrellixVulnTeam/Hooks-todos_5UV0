@@ -4,45 +4,37 @@ import AddForm from "../../components/addForm/AddForm";
 import Finished from "../../components/finished/Finished";
 import NotFinshed from "../../components/notFinshed/NotFinshed";
 
-import Mobx from "../test1/Mobx";
+// import { observer } from "mobx-react";
+// import Mobx from "../test1/Mobx";
 
-import Add from "../test1/Add";
+// import Add from "../test1/Add";
 
-// export default class Home extends Component {
-//   render() {
-//     const { obj } = Text;
-//     // console.log(obj);
-//     console.log(typeof obj)
+// import store from "../../store/todolists";
 
-//     return (
-//       <div className="home">
-//         <AddForm />
-//         {/* {
-//             obj.map((item,index)=>item.finished?<NotFinshed  key={index} index={index} item={item} />:<Finished key={index} index={index} item={item} />)
-//         } */}
-//         <Finished/>
-//         <NotFinshed/>
-//         {/* <Mobx /> */}
-//         {/* <Add/> */}
-//       </div>
-//     );
-//   }
-// }
+// export const HomeContext = createContext();
 
-export const HomeContext = createContext();
-export default function Home() {
-  const [str, setStr] = useState("");
-  const [arr, setArr] = useState([])
-
+export default function Home(props) {
+  // const [str, setStr] = useState("");
+  // const [arr, setArr] = useState([]);
+  // console.log("arr home", arr);
+  // console.log("store home", props.store);
+  const { store } = props;
+  console.log(store, " home");
   return (
-    <HomeContext.Provider value={{arr,setArr,str,setStr}}>
-      <div className="home">
-        <AddForm />
-        <Finished />
-        <NotFinshed />
-        {/* <Add />
-        <Mobx /> */}
-      </div>
-    </HomeContext.Provider>
+    <div className="home">
+      <AddForm store={store} />
+      <Finished store={store} />
+      <NotFinshed store={store} />
+    </div>
   );
 }
+
+/***
+ *
+ *    添加
+ *    分类
+ *    添加子类
+ *    完成类型互换
+ *    删除
+ *
+ */

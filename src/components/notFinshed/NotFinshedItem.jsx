@@ -15,15 +15,22 @@ import { HomeContext } from "../../containers/home/Home";
 export default function NotFinshedItem(props) {
   const { str, setStr, arr, setArr } = useContext(HomeContext);
   console.log(props);
-  const {value,id ,finished}=props.i
-
+  const { value, id, finished } = props.i;
+  const deleteOne = (id) => {
+    console.log(id);
+    const newArr = arr.map((i, index) =>
+      i.id === id ? arr.splice(index, 1) : null
+    );
+    setArr(newArr);
+    console.log(arr,'notFinished')
+  };
   return (
     <div className="notFinshedItem">
-      {
-        finished?<input type="checkbox" checked />:<input type="checkbox" />
-      }
+      {finished ? null : <input type="checkbox" />}
       {value}
-      <button className="delete">删除</button>
+      <button className="delete" onClick={() => deleteOne(id)}>
+        删除
+      </button>
       <div className="lineThrow"></div>
     </div>
   );

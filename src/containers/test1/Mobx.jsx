@@ -9,7 +9,7 @@ class MyState{
     }
     @observable num=0
 
-    
+     
       @action.bound addNum = () => {
         this.num++;
         console.log('num',this.num)

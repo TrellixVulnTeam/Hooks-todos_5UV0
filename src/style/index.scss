@@ -4,10 +4,95 @@ $bgColor: #eee;
 $fszie: 12px;
 $textAlign: left;
 $lineHeight: 40px;
-.delete{
-  position: absolute;
-        left:54%;
-        cursor: pointer;
+.item {
+  width: 100%;
+  height: 40px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  background-color: $bgColor;
+  box-shadow: 2px 2px 6px #ddd;
+  margin-bottom: 8px;
+  .checkStyle {
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    top: 13px;
+    left: 2px;
+    background-color: $bgColor;
+    -webkit-appearance: none;
+    border: 1px solid #c9c9c9;
+    border-radius: 2px;
+    outline: none;
+  }
+
+  & > input[type="checkbox"]:checked {
+    background: url("../images/7a86c8dcdf57daaa03133deed021d4f9.png") no-repeat
+      center;
+  }
+  .showValue {
+    width: 90%;
+    // height: 100%;
+    position: absolute;
+    top: 14px;
+    left: 28px;
+    background-color: $bgColor;
+    color: rgba(0, 0, 0, 0.85);
+    margin-left: 4px;
+    outline: none;
+    border: none;
+    &:focus {
+      border: none;
+    }
+  }
+  .menuToggle {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 12px;
+    right: -26px;
+    text-align: center;
+    line-height: 14px;
+    border-radius: 10px;
+    // background-color: red;
+    &:hover{
+      cursor: pointer;
+      background-color: #ddd;
+    }
+  }
+  .toggleTask {
+    width: 100px;
+    height: 80px;
+    background-color: #fff;
+    position: absolute;
+    right: -50px;
+    top: 30px;
+    box-shadow: 2px 2px 6px #ddd;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    & > div {
+      color: rgba(0, 0, 0, 0.85);
+      padding-left: 10px;
+      box-sizing: border-box;
+      cursor: pointer;
+    }
+    & > div:hover {
+      background-color: $bgColor;
+    }
+  }
+  // .lineThrow {
+  //   width: 100%;
+  //   height: 3px;
+  //   position: absolute;
+  //   bottom: 0;
+  //   background-color: white;
+  // }
+}
+.subitem{
+  @extend .item;
+  margin-left: 8px;
+  width: 98%;
 }
 
 body {
@@ -34,6 +119,7 @@ body {
         background-color: $bgColor;
         &:focus {
           outline: 1px solid rgba(75, 111, 222, 0.54);
+          // background-color: rebeccapurple;
           // border-color: rgba(75,111,222,.54);
         }
       }
@@ -49,18 +135,6 @@ body {
       padding-left: 10px;
       box-sizing: border-box;
       position: relative;
-      // top: 100px;
-      .finishedItem {
-        background-color: $bgColor;
-      }
-      .deleteOne{
-        @extend .delete;
-      }
-      .lineThrow {
-        width: 100%;
-        height: 3px;
-        background-color: white;
-      }
     }
     .notfinished {
       width: 64%;
@@ -72,19 +146,17 @@ body {
       line-height: $lineHeight;
       box-sizing: border-box;
       padding-left: 10px;
-      // position: absolute;
+      position: relative;
       // top: 10px;
       .notFinshedItem {
         background-color: $bgColor;
       }
-      .deleteOne{
-        @extend .delete;
+      .deleteOne {
+        position: absolute;
+        left: 54%;
+        cursor: pointer;
       }
-      .lineThrow {
-        width: 100%;
-        height: 3px;
-        background-color: white;
-      }
+      
     }
   }
 }
